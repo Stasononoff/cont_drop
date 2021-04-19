@@ -30,10 +30,11 @@ def fit_epoch(model, train_loader, criterion, optimizer, DEVICE):
     running_corrects = 0
     processed_data = 0
   
-    for i in range(50):
+    # for i in range(50):
     
-        inputs, labels  = iter(train_loader).next()
-        print(inputs.size())
+    #     inputs, labels  = iter(train_loader).next()
+        # print(inputs.size())
+    for inputs, labels in train_loader:
         inputs = inputs.to(DEVICE)
         labels = labels.to(DEVICE)
         optimizer.zero_grad()
@@ -62,9 +63,10 @@ def eval_epoch(model, val_loader, criterion, DEVICE):
     running_corrects = 0
     processed_size = 0
 
-    for i in range(50): 
-        print(i)
-        inputs, labels = iter(val_loader).next()
+    # for i in range(50): 
+    #     print(i)
+    #     inputs, labels = iter(val_loader).next()
+    for inputs, labels in val_loader:
         inputs = inputs.to(DEVICE)
         labels = labels.to(DEVICE)
 
